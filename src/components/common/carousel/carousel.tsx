@@ -12,9 +12,8 @@ const getItems = () =>
     .map((_, ind) => ({ id: `element-${ind}` }));
 
 function Carousel() {
-  const [items, setItems] = React.useState(getItems);
+  const [items, ] = React.useState(getItems);
   const [selected, setSelected] = React.useState([]);
-  const [position, setPosition] = React.useState(0);
   const [hideCarousel, setHideCarousel] = React.useState(false);
 
   const left: any = useRef(null);
@@ -36,7 +35,7 @@ function Carousel() {
     };
 
     function LeftArrow() {
-      const { isFirstItemVisible, scrollPrev } =
+      const { scrollPrev } =
         React.useContext(VisibilityContext);
     
       return (
@@ -47,7 +46,7 @@ function Carousel() {
     }
     
     function RightArrow() {
-      const { isLastItemVisible, scrollNext } = React.useContext(VisibilityContext);
+      const { scrollNext } = React.useContext(VisibilityContext);
     
       return (
         <div onClick={() => scrollNext()} style={{display: "none"}} ref={right}>
@@ -56,7 +55,6 @@ function Carousel() {
       );
     }
     function Card({ onClick, selected, title, itemId }: any) {
-      const visibility = React.useContext(VisibilityContext);
     
       return (
         <div

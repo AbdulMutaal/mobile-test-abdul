@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-import { Table, Input } from "antd";
-import axios from "axios";
-import { userColumns } from "./columns";
+import { useState } from "react";
 import { useTableSearch } from "./useTableSearch";
 import styles from "./searchTable.module.css";
 import SearchIcon from '@mui/icons-material/Search';
 import StickyHeadTable from "./table/table";
 import { users } from "../../../utils/sampleData";
 
-const { Search } = Input;
 
 const fetchUsers = async () => {
   const data  = users;
@@ -18,7 +14,7 @@ const fetchUsers = async () => {
 export default function SearchTable() {
   const [searchVal, setSearchVal] = useState(null);
 
-  const { filteredData, loading } = useTableSearch({
+  const { filteredData } = useTableSearch({
     searchVal,
     retrieve: fetchUsers
   });
