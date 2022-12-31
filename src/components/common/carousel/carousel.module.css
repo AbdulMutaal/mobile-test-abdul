@@ -2,3 +2,23 @@
     margin-right: 10px;
     margin-left: 10px;
 }
+
+.carouselBtns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.LeftBtn{
+    margin-left: 16px;
+}
+
+.rightBtn{
+    margin-left: 16px;
+}
+
+.PendingHeading{
+    font-weight: 600;
+    font-size: 32px;
+}

@@ -15,6 +15,7 @@ function Carousel() {
   const [items, setItems] = React.useState(getItems);
   const [selected, setSelected] = React.useState([]);
   const [position, setPosition] = React.useState(0);
+  const [hideCarousel, setHideCarousel] = React.useState(false);
 
   const left: any = useRef(null);
   const right: any = useRef(null);
@@ -74,20 +75,20 @@ function Carousel() {
   return (
     <>
     <div style={{display: "flex", justifyContent: "space-between"}}>
-      <h1>7 Pending Members</h1>
-      <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-          <Button type="cancel">Hide</Button>
-          <img src={LEFT} onClick={() => {
+      <h1 className={styles.PendingHeading}>7 Pending Members</h1>
+      <div className={styles.carouselBtns}>
+          <Button onclick={() => setHideCarousel(prev => !prev)} type="cancel">{hideCarousel ? 'Unhide' : 'Hide'}</Button>
+          <img className={styles.LeftBtn} src={LEFT} onClick={() => {
             left.current.click();
            }} alt="left" />
 
-            <img src={RIGHT} onClick={() => {
+            <img className={styles.rightBtn} src={RIGHT} onClick={() => {
               right.current.click();
             }} alt="right"/>
       </div>
     </div>
     
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+    {!hideCarousel && <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {items.map(({ id }) => (
         <Card
           itemId={id} // NOTE: itemId is required for track items
@@ -97,7 +98,7 @@ function Carousel() {
           selected={isItemSelected(id)}
         />
       ))}
-    </ScrollMenu>
+    </ScrollMenu>}
     </>
     
   );

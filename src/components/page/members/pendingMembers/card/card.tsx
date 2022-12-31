@@ -2,12 +2,13 @@ import Avatar from '@mui/material/Avatar';
 
 import styles from './card.module.css';
 import Button from '../../../../common/button/button';
+import GirlAvatar from '../../../../../assets/girlAvatar.svg'
 
 const Card = () => {
     return(
         <div className={styles.card}>
             <div>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> 
+                <Avatar alt="Remy Sharp" src={GirlAvatar} /> 
             </div>
             <div>
                 <p className={styles.name}>Jessica Pierce</p>
