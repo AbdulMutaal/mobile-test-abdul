@@ -1,0 +1,22 @@
+.SearchHeading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SearchInput{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 14.5px;
+    padding-left: 40px;
+}
+
+.searchIcon{
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    z-index: 999;
+    color:#FF3E9A
+}

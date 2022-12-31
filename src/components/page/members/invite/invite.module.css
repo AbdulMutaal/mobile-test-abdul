@@ -1,0 +1,100 @@
+.InviteSection{
+    padding: 40px 24px 32px 24px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    margin-right: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.InviteTextDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.InviteMailIcon{
+    font-size: 56px;
+    font-weight: 600;
+}
+
+.InviteMMHeading{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: -15px;
+}
+
+.InviteMMText{
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.CopySection{    
+    margin-left: 113px;
+}
+
+
+.CopyHeading{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.CopyTextDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 23px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+.CopyText{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 3px;
+    margin-right: 19px;
+}
+
+.CopyIcon{
+    color: #FF3E9A;
+}
+
+.OrDiv{
+    margin-left: 29px;
+    margin-right: 24px;
+}
+
+.OrText{
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.3;
+}
+
+.EmailInputDiv{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 13.5px 16px 13.5px 16px;
+    width: 400px;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.EmailInputText{
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0.4;
+    margin-top: 0;
+}
+
+.EmailInput{
+    border:none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.2;
+    width: 80%;
+}

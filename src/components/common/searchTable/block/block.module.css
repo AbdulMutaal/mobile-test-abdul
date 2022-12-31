@@ -1,0 +1,9 @@
+.block{
+    background: linear-gradient(90deg, #FF3E9A 0.59%, #D83EFF 100.59%);
+border-radius: 32px;
+padding: 4px 8px 4px 8px;
+width: max-content;
+color: #fff;
+font-size: 10px;
+font-weight: 600;
+}

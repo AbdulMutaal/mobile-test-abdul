@@ -1,0 +1,13 @@
+.pageMember{
+    margin-left: 32px;
+}
+
+.Header{
+    display: flex;
+}
+
+.GroupMText{
+    font-size: 40px;
+    font-weight: 600;
+    margin-left: 24px;
+}
