@@ -66,4 +66,22 @@ margin-right: 19px;
 .Paginationfooter{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.PaginationText{
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.PaginationSelect{
+    border: none;
+    font-weight: 500;
+font-size: 14px;
+width: 50px;
+height: 20px;
+margin-top: 18px;
+margin-right: 10px;
+margin-left: 10px;
 }

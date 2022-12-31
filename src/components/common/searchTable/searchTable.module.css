@@ -20,3 +20,8 @@
     z-index: 999;
     color:#FF3E9A
 }
+
+.ActiveMHeading{
+    font-weight: 600;
+font-size: 32px;
+}

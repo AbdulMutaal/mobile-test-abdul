@@ -6,13 +6,12 @@ import { useTableSearch } from "./useTableSearch";
 import styles from "./searchTable.module.css";
 import SearchIcon from '@mui/icons-material/Search';
 import StickyHeadTable from "./table/table";
+import { users } from "../../../utils/sampleData";
 
 const { Search } = Input;
 
 const fetchUsers = async () => {
-  const { data } = await axios.get(
-    "https://jsonplaceholder.typicode.com/users/"
-  );
+  const data  = users;
   return { data };
 };
 
@@ -27,7 +26,7 @@ export default function SearchTable() {
   return (
     <>
         <div className={styles.SearchHeading}>
-            <h2>4,345 Active Members</h2>
+            <h2 className={styles.ActiveMHeading}>4,345 Active Members</h2>
             <div style={{position: 'relative'}}>
                 <SearchIcon className={styles.searchIcon} />
                 <input

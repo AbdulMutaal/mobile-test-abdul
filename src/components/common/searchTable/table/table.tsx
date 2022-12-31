@@ -15,6 +15,7 @@ import Switch from '@mui/material/Switch';
 import PendingIcon from '@mui/icons-material/Pending';
 import ThreedotsIcon from '../../../../assets/threeDots.svg';
 import Pagination from '@mui/material/Pagination';
+import BoyAvatar from '../../../../assets/boyAvatar.svg';
 
 
 
@@ -100,7 +101,7 @@ export default function StickyHeadTable({dataSource}: any) {
   return (
     <>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer sx={{ maxHeight: 1000 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -120,19 +121,27 @@ export default function StickyHeadTable({dataSource}: any) {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row: any) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <TableRow 
+                    hover 
+                    role="checkbox" 
+                    tabIndex={-1} 
+                    key={row.code}
+                    sx={row.admin ? {
+                      background: "linear-gradient(90deg, rgba(255, 62, 154, 0.05) 0.59%, rgba(216, 62, 255, 0.05) 100.59%)"
+                    } : {}}
+                  >
                     {columns.map((column) => {
                       return (
                         <TableCell key={column.id} align={column.align}>
                           {column.id === "name" && 
                             <div className={styles.column1}>
                                 <div>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                    <Avatar alt="Remy Sharp" src={BoyAvatar} />
                                 </div>
                                 <div className={styles.emailDiv}>
                                   <div className={styles.column1Text}>
-                                      <p className={styles.name}>Darlene Roberston</p>
-                                      <Block>administrator</Block>
+                                      <p className={styles.name}>{row.name}</p>
+                                      {row.admin && <Block>administrator</Block>}
                                   </div>
                                   <div>
                                       <p className={styles.email}>darlene.robertson@harvard.ac.uk</p>
@@ -176,11 +185,13 @@ export default function StickyHeadTable({dataSource}: any) {
 
     </Paper>
     <div className={styles.Paginationfooter}>
-      <div style={{display:"flex"}}>
-        <p>1-10 from 4,345 Show</p>
-        <select>
+      <div className={styles.PaginationText}>
+        <p>1-{rowsPerPage} from {dataSource.length} Show</p>
+        <select className={styles.PaginationSelect} value={rowsPerPage} onChange={(e: any) => setRowsPerPage(e.target.value)}>
+          <option value="5">5</option>
           <option value="10">10</option>
-          <option value="10">25</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
         </select>
         <p>on each load</p>
       </div>
