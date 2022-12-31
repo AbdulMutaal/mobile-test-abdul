@@ -3,6 +3,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import Button from '../../../common/button/button';
+import Toaster from '../../../common/toaster/toaster';
 
 const Invite = () => {
     const value = "test.so/group/code=25T47";
@@ -22,7 +23,7 @@ const Invite = () => {
                 <div className={styles.CopyTextDiv}>
                     <p className={styles.CopyText}>{value}</p>
                     
-                    <CopyToClipboard text={value}>
+                    <CopyToClipboard text={value} onCopy={() => Toaster({type: "success", message: "copied"})}>
                         <ContentCopyIcon className={styles.CopyIcon} />
                     </CopyToClipboard>
                 </div>
