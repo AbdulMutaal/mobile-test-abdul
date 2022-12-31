@@ -46,7 +46,7 @@ const Invite = () => {
                         />
                     </div>
                     
-                    <Button>Send</Button>
+                    <Button onclick={() => window.open("https://google.com",'_blank')}>Send</Button>
                     
                 </div>
             </div>    

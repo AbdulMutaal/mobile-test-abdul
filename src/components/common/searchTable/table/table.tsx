@@ -44,7 +44,6 @@ const columns: readonly Column[] = [
     id: 'size',
     label: 'Action',
     // minWidth: 170,
-    align: 'right',
     format: (value: number) => value.toLocaleString('en-US'),
   }
 ];
@@ -159,8 +158,8 @@ export default function StickyHeadTable({dataSource}: any) {
 
                             {column.id === "size" && 
                               <div className={styles.SizeColumn}>
-                                <button className={styles.profileBtn}>View Profile</button>
-                                <img src={ThreedotsIcon} />
+                                <button onClick={() => window.open("https://google.com",'_blank')} className={styles.profileBtn}>View Profile</button>
+                                <img onClick={() => window.open("https://google.com",'_blank')} src={ThreedotsIcon} />
                               </div>}
                         </TableCell>
                       );

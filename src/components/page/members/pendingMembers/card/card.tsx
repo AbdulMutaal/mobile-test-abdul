@@ -17,8 +17,8 @@ const Card = () => {
                 <p className={styles.email}>jessica.pierce@harvard.ac.uk</p>
             </div>
             <div>
-                <Button type="cancel">Reject</Button>
-                <Button>Accept</Button>
+                <Button onclick={() => window.open("https://google.com",'_blank')} type="cancel">Reject</Button>
+                <Button onclick={() => window.open("https://google.com",'_blank')} >Accept</Button>
             </div>
         </div>
     )
