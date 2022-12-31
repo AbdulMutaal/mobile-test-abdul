@@ -5,3 +5,12 @@
     border: none;
     padding: 8px 20px 8px 20px;
 }
+
+.CancelButtonStyle{
+    background: #fff;
+    border-radius: 48px;
+    color: #000;
+    padding: 8px 20px 8px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-right: 12px;
+}
