@@ -124,7 +124,7 @@ export default function StickyHeadTable({dataSource}: any) {
                     hover 
                     role="checkbox" 
                     tabIndex={-1} 
-                    key={row.code}
+                    key={row.id}
                     sx={row.admin ? {
                       background: "linear-gradient(90deg, rgba(255, 62, 154, 0.05) 0.59%, rgba(216, 62, 255, 0.05) 100.59%)"
                     } : {}}
