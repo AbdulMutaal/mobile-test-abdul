@@ -176,8 +176,13 @@ export default function StickyHeadTable({dataSource}: any) {
 
     </Paper>
     <div className={styles.Paginationfooter}>
-      <div>
-        <p>1-10 from 4,345</p>
+      <div style={{display:"flex"}}>
+        <p>1-10 from 4,345 Show</p>
+        <select>
+          <option value="10">10</option>
+          <option value="10">25</option>
+        </select>
+        <p>on each load</p>
       </div>
       <div className={styles.PaginationDiv}>
         <Pagination count={10} variant="outlined" shape="rounded" />

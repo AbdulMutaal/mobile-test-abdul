@@ -11,7 +11,7 @@ const Invite = () => {
         <div className={styles.InviteSection}>
             <div className={styles.InviteTextDiv}>
                <p className={styles.InviteMailIcon}>💌</p>
-               <div>
+               <div style={{marginRight: '-5px'}}>
                     <p className={styles.InviteMMHeading}>Invite More Member</p>
                     <p className={styles.InviteMMText}>Invite your friends to the organization!</p>
                 </div> 
