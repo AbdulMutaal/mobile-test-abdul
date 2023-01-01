@@ -85,26 +85,23 @@ const columns: readonly Column[] = [
 // ];
 
 export default function StickyHeadTable({dataSource}: any) {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [totalPages, setTotalPages ]= useState(0);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     if(dataSource) {
       let pages = Math.ceil(dataSource.length / rowsPerPage);
 
       setTotalPages(pages);
+      
+      let start = (page-1) * rowsPerPage;
+      let end = ((page-1) * rowsPerPage) + (1 + (rowsPerPage-1));
+      
+      setData(dataSource.slice(start, end));
     }
-  }, [rowsPerPage])
-
-  // const handleChangePage = (event: unknown, newPage: number) => {
-  //   setPage(newPage);
-  // };
-
-  // const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setRowsPerPage(+event.target.value);
-  //   setPage(0);
-  // };
+  }, [rowsPerPage, dataSource, page])
 
   return (
     <>
@@ -125,8 +122,7 @@ export default function StickyHeadTable({dataSource}: any) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {dataSource
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            {data
               .map((row: any) => {
                 return (
                   <TableRow 
@@ -179,23 +175,12 @@ export default function StickyHeadTable({dataSource}: any) {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        // shape="rounded"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      /> */}
-      
 
     </Paper>
     <div className={styles.Paginationfooter}>
       <div className={styles.PaginationText}>
         <p>1-{rowsPerPage} from {dataSource.length} Show</p>
-        <select className={styles.PaginationSelect} value={rowsPerPage} onChange={(e: any) => setRowsPerPage(e.target.value)}>
+        <select className={styles.PaginationSelect} value={rowsPerPage} onChange={(e: any) => {setRowsPerPage(e.target.value); setPage(1);}}>
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="25">25</option>
@@ -204,7 +189,7 @@ export default function StickyHeadTable({dataSource}: any) {
         <p>on each load</p>
       </div>
       <div className={styles.PaginationDiv}>
-        <Pagination count={totalPages} variant="outlined" shape="rounded" />
+        <Pagination onChange={(e, p) => setPage(p)} count={totalPages} variant="outlined" shape="rounded" />
       </div>
     </div>
     
