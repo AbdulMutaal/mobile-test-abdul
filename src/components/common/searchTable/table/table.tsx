@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -85,8 +85,17 @@ const columns: readonly Column[] = [
 // ];
 
 export default function StickyHeadTable({dataSource}: any) {
-  const [page,] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [totalPages, setTotalPages ]= useState(0);
+
+  useEffect(() => {
+    if(dataSource) {
+      let pages = Math.ceil(dataSource.length / rowsPerPage);
+
+      setTotalPages(pages);
+    }
+  }, [rowsPerPage])
 
   // const handleChangePage = (event: unknown, newPage: number) => {
   //   setPage(newPage);
@@ -195,7 +204,7 @@ export default function StickyHeadTable({dataSource}: any) {
         <p>on each load</p>
       </div>
       <div className={styles.PaginationDiv}>
-        <Pagination count={10} variant="outlined" shape="rounded" />
+        <Pagination count={totalPages} variant="outlined" shape="rounded" />
       </div>
     </div>
     
